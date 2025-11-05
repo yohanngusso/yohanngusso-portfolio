@@ -18,7 +18,7 @@ const Experience = () => {
       achievements: [
         "Engenharia de Requisitos e Modelagem UML: Traduzo regras de negócio em especificações técnicas e diagramas (Casos de Uso, Classes, Sequência) que servem como base para um desenvolvimento sólido.",
         "Arquitetura e Desenvolvimento Full-Stack: Implemento soluções utilizando uma stack moderna (Java, Python, TypeScript, React) e garanto a qualidade do código com Testes Unitários.",
-        "Automação com Python: Desenvolvo scripts para automatizar tarefas manuais e rotinas repetitivas — como extração de dados de PDFs com Camelot, transformação com Pandas e geração automática de relatórios em Excel, além de integrações com APIs.",
+        "Automação com Python: Desenvolvo scripts para automatizar tarefas manuais e rotinas repetitivas — como extração de dados de PDFs com Tesseract, transformação com Pandas e geração automática de relatórios em Excel, além de integrações com APIs.",
         "Arquitetura de Soluções Sob Medida: Defino a arquitetura tecnológica ideal para cada projeto, seja utilizando bancos de dados relacionais (PostgreSQL/MySQL) para sistemas complexos ou plataformas como Supabase/Firebase para acelerar o desenvolvimento (MVP) e otimizar custos.",
         "Ciclo de Vida Completo: Sou responsável pelo deploy, implementação em produção e pela manutenção evolutiva das aplicações, garantindo suporte pós-entrega."
       ],

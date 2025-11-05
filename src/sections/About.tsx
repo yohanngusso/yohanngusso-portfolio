@@ -12,7 +12,7 @@ const About = () => {
     {
       icon: <Code className="w-6 h-6" />,
       title: "Desenvolvimento Full-Stack",
-      description: "Experiência completa em Java/Spring Boot, Python, TypeScript e React"
+      description: "Experiência em Java/Spring Boot, Python, TypeScript e React"
     },
     {
       icon: <Database className="w-6 h-6" />,
