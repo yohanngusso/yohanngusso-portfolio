@@ -89,7 +89,7 @@ const Footer = () => {
                 📍 Curitiba, Paraná, Brasil
               </p>
               <p className="text-gray-400 text-sm">
-                📧 yohann@example.com
+                📧 yohann.gusso@hotmail.com
               </p>
               <p className="text-gray-400 text-sm">
                 🟢 Disponível para novos projetos
@@ -127,22 +127,7 @@ const Footer = () => {
               © {currentYear} Yohann Gusso. Todos os direitos reservados.
             </p>
             <div className="flex items-center text-gray-400 text-sm">
-              Feito com{' '}
-              <motion.span
-                animate={{
-                  scale: [1, 1.2, 1],
-                  color: ['#ef4444', '#f97316', '#ef4444'],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="mx-1"
-              >
-                <Heart className="w-4 h-4 fill-current" />
-              </motion.span>
-              {' '}e React + TypeScript
+              Feito por Yohann Gusso
             </div>
           </div>
         </motion.div>
