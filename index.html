@@ -1,123 +1,405 @@
 <![CDATA[<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Portfólio profissional de Yohann Matheus Gusso Guedes — Desenvolvedor FullStack especializado em Node.js (NestJS), Java (Spring Boot) e React (Next.js).">
-  <meta name="author" content="Yohann Matheus Gusso Guedes">
-  <meta name="keywords" content="Yohann Gusso, Desenvolvedor FullStack, NestJS, Spring Boot, Next.js, portfólio">
+    content="Portfólio de Yohann Gusso — Desenvolvedor FullStack especializado em Node.js, Java (Spring Boot) e React.">
+  <meta name="author" content="Yohann Gusso">
+  <meta name="keywords" content="Yohann Gusso, Desenvolvedor FullStack, Spring Boot, React, portfólio">
 
-  <!-- Open Graph para compartilhamento em redes sociais -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Yohann Gusso — Desenvolvedor FullStack">
-  <meta property="og:description"
-    content="Portfólio profissional de Yohann Matheus Gusso Guedes — Desenvolvedor FullStack.">
+  <meta property="og:description" content="Portfólio profissional de Yohann Gusso — Desenvolvedor FullStack.">
   <meta property="og:image" content="assets/images/Foto_linkedin.png">
 
-  <title>Yohann Gusso — Desenvolvedor FullStack</title>
+  <title>Yohann Gusso — Sistema</title>
 
-  <!-- Stylesheet (será implementado no Marco 2) -->
+  <!-- Previne flash de tema errado (FOUC) -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const theme = saved || (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+
+  <!-- Google Fonts: Manrope + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <!-- ==================== HEADER / NAVEGAÇÃO ==================== -->
-  <header>
-    <nav aria-label="Navegação principal">
-      <a href="#sobre" class="logo">Yohann Gusso</a>
+  <div class="app">
 
-      <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="sidebar" id="sidebar">
+      <!-- Perfil -->
+      <div class="sidebar-profile">
+        <img src="assets/images/Foto_linkedin.png" alt="Foto de Yohann Gusso" class="sidebar-avatar">
+        <div class="sidebar-id">
+          <strong>Yohann Gusso</strong>
+          <span class="sidebar-role">FullStack Dev</span>
+        </div>
+        <span class="sidebar-status" title="Disponível"><i class="dot"></i></span>
+      </div>
 
-  <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
-  <main>
-    <!-- --------------------- SEÇÃO: SOBRE --------------------- -->
-    <section id="sobre" aria-labelledby="titulo-sobre">
-      <h1 id="titulo-sobre">Yohann Matheus Gusso Guedes</h1>
-      <p class="titulo-profissional">Desenvolvedor FullStack | Node.js (NestJS) | Java (Spring Boot) | React (Next.js)</p>
+      <!-- Navegação -->
+      <nav class="sidebar-nav" aria-label="Navegação do sistema">
+        <p class="nav-group-label">Navegação</p>
+        <button class="nav-item active" data-view="dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="7" height="7" x="0" y="0" rx="1" /><rect width="7" height="7" x="14" y="0" rx="1" />
+            <rect width="7" height="7" x="0" y="14" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" />
+          </svg>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-view="stack">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+            <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
+          </svg>
+          <span>Stack</span>
+        </button>
+        <button class="nav-item" data-view="projetos">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
+          </svg>
+          <span>Projetos</span>
+        </button>
+        <button class="nav-item" data-view="contato">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+          <span>Contato</span>
+        </button>
+      </nav>
 
-      <img src="assets/images/Foto_linkedin.png" alt="Foto de perfil de Yohann Gusso" width="250" height="250">
+      <!-- Rodapé da sidebar -->
+      <div class="sidebar-footer">
+        <div class="sidebar-social" aria-label="Redes sociais">
+          <a href="https://github.com/yohanngusso" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/yohanngusso/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z" />
+            </svg>
+          </a>
+          <a href="mailto:yohann.gusso@hotmail.com" aria-label="E-mail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </a>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema claro/escuro">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+          <span>Tema</span>
+        </button>
+      </div>
+    </aside>
 
-      <p class="bio">
-        Minha relação com a tecnologia começou aos 5 anos, mexendo e vasculhando no computador. Essa
-        curiosidade virou profissão: hoje sou estudante de Engenharia de Software, já atuei com assistência
-        técnica e desenvolvo sites, sistemas e apps como freelancer — sempre de olho no que a IA pode tornar
-        possível.
-      </p>
-    </section>
+    <!-- Overlay mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <!-- --------------------- SEÇÃO: PROJETOS --------------------- -->
-    <section id="projetos" aria-labelledby="titulo-projetos">
-      <h2 id="titulo-projetos">Projetos</h2>
+    <!-- ==================== ÁREA PRINCIPAL ==================== -->
+    <div class="main">
 
-      <!-- Projeto 1 (Placeholder) -->
-      <article>
-        <h3>[Nome do Projeto 1]</h3>
-        <p>Descrição breve do projeto. Substitua este texto pela descrição real do seu primeiro projeto.</p>
-        <p><strong>Tecnologias:</strong> [Tecnologia 1, Tecnologia 2]</p>
-        <a href="#" target="_blank" rel="noopener noreferrer">Ver no GitHub →</a>
-      </article>
+      <!-- Topbar estilo janela -->
+      <header class="topbar">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
 
-      <!-- Projeto 2 (Placeholder) -->
-      <article>
-        <h3>[Nome do Projeto 2]</h3>
-        <p>Descrição breve do projeto. Substitua este texto pela descrição real do seu segundo projeto.</p>
-        <p><strong>Tecnologias:</strong> [Tecnologia 1, Tecnologia 2]</p>
-        <a href="#" target="_blank" rel="noopener noreferrer">Ver no GitHub →</a>
-      </article>
-    </section>
-
-    <!-- --------------------- SEÇÃO: CONTATO --------------------- -->
-    <section id="contato" aria-labelledby="titulo-contato">
-      <h2 id="titulo-contato">Contato</h2>
-
-      <p>Tem um projeto em mente ou quer trocar uma ideia? Entre em contato!</p>
-
-      <form action="mailto:yohann.gusso@hotmail.com" method="post" enctype="text/plain">
-        <div>
-          <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+        <div class="window-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
         </div>
 
-        <div>
-          <label for="email">E-mail:</label>
-          <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+        <div class="topbar-title">
+          <span class="crumb-root">yohanngusso</span>
+          <span class="crumb-sep">/</span>
+          <span class="crumb-current" id="currentView">dashboard</span>
         </div>
 
-        <div>
-          <label for="mensagem">Mensagem:</label>
-          <textarea id="mensagem" name="mensagem" rows="5" placeholder="Sua mensagem..." required></textarea>
+        <div class="topbar-right">
+          <span class="clock" id="clock" aria-label="Hora atual">--:--</span>
         </div>
+      </header>
 
-        <button type="submit">Enviar Mensagem</button>
-      </form>
-    </section>
-  </main>
+      <!-- Conteúdo / Views -->
+      <main class="content" id="content">
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer>
-    <div>
-      <!-- Links sociais com target="_blank" e rel para segurança -->
-      <a href="https://www.linkedin.com/in/yohanngusso/" target="_blank" rel="noopener noreferrer">
-        LinkedIn
-      </a>
-      <a href="https://github.com/yohanngusso" target="_blank" rel="noopener noreferrer">
-        GitHub
-      </a>
-      <a href="mailto:yohann.gusso@hotmail.com">
-        E-mail
-      </a>
+        <!-- ============ VIEW: DASHBOARD ============ -->
+        <section class="view active" id="view-dashboard" aria-label="Dashboard">
+          <div class="panel dash-hero">
+            <img src="assets/images/Foto_linkedin.png" alt="Foto de Yohann Gusso" class="dash-avatar">
+            <div class="dash-hero-info">
+              <span class="dash-eyebrow">// Desenvolvedor FullStack</span>
+              <h1>Yohann Gusso</h1>
+              <p class="dash-bio">
+                Minha relação com a tecnologia começou aos 5 anos, mexendo e vasculhando no
+                computador. Essa curiosidade virou profissão: hoje sou estudante de Engenharia de
+                Software, já atuei com assistência técnica e desenvolvo sites, sistemas e apps como
+                freelancer — sempre de olho no que a IA pode tornar possível.
+              </p>
+              <div class="dash-actions">
+                <button class="btn btn-primary" data-go="projetos">Ver projetos</button>
+                <button class="btn btn-ghost" data-go="contato">Entrar em contato</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-grid">
+            <div class="panel stat">
+              <span class="stat-label">Foco</span>
+              <span class="stat-value">FullStack</span>
+            </div>
+            <div class="panel stat">
+              <span class="stat-label">Formação</span>
+              <span class="stat-value">Eng. de Software</span>
+            </div>
+            <div class="panel stat">
+              <span class="stat-label">Status</span>
+              <span class="stat-value"><i class="dot inline"></i> Disponível</span>
+            </div>
+            <div class="panel stat">
+              <span class="stat-label">Atuação</span>
+              <span class="stat-value">Freelancer</span>
+            </div>
+          </div>
+
+          <div class="panel terminal">
+            <div class="terminal-bar">
+              <span class="tdot red"></span><span class="tdot yellow"></span><span class="tdot green"></span>
+              <span class="terminal-title">yohann@portfolio: ~</span>
+            </div>
+            <pre class="terminal-body"><span class="t-prompt">$</span> whoami
+yohann gusso
+<span class="t-prompt">$</span> cat stack.json
+{
+  "backend":  ["Java", "Spring Boot", "Node.js", "Python"],
+  "frontend": ["React", "TypeScript"],
+  "data":     ["PostgreSQL", "DBeaver"],
+  "devops":   ["Docker", "Linux", "Git"],
+  "cloud":    ["AWS", "Google Cloud"]
+}
+<span class="t-prompt">$</span> status --now
+<span class="t-ok">✔ pronto para novos projetos</span>
+<span class="t-cursor">█</span></pre>
+          </div>
+        </section>
+
+        <!-- ============ VIEW: STACK ============ -->
+        <section class="view" id="view-stack" aria-label="Stack de tecnologias">
+          <div class="view-head">
+            <h2 class="view-title">Stack</h2>
+            <p class="view-sub">Tecnologias e ferramentas que utilizo no dia a dia.</p>
+          </div>
+
+          <div class="stack-categories">
+            <!-- Backend -->
+            <div class="panel stack-category">
+              <div class="stack-cat-header">
+                <span class="stack-cat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
+                </span>
+                <div>
+                  <h3 class="stack-cat-title">Backend</h3>
+                  <span class="stack-cat-count">4 tecnologias</span>
+                </div>
+              </div>
+              <div class="stack-cat-items">
+                <div class="tech-item" title="Node.js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" width="36" height="36"><span>Node.js</span></div>
+                <div class="tech-item" title="Java"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" width="36" height="36"><span>Java</span></div>
+                <div class="tech-item" title="Spring Boot"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" width="36" height="36"><span>Spring Boot</span></div>
+                <div class="tech-item" title="Python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="36" height="36"><span>Python</span></div>
+
+              </div>
+            </div>
+
+            <!-- Frontend -->
+            <div class="panel stack-category">
+              <div class="stack-cat-header">
+                <span class="stack-cat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+                </span>
+                <div>
+                  <h3 class="stack-cat-title">Frontend</h3>
+                  <span class="stack-cat-count">2 tecnologias</span>
+                </div>
+              </div>
+              <div class="stack-cat-items">
+                <div class="tech-item" title="React"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" width="36" height="36"><span>React</span></div>
+                <div class="tech-item" title="TypeScript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" width="36" height="36"><span>TypeScript</span></div>
+              </div>
+            </div>
+
+            <!-- Banco de Dados -->
+            <div class="panel stack-category">
+              <div class="stack-cat-header">
+                <span class="stack-cat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+                </span>
+                <div>
+                  <h3 class="stack-cat-title">Banco de Dados</h3>
+                  <span class="stack-cat-count">2 tecnologias</span>
+                </div>
+              </div>
+              <div class="stack-cat-items">
+                <div class="tech-item" title="PostgreSQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="36" height="36"><span>PostgreSQL</span></div>
+                <div class="tech-item" title="DBeaver"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dbeaver/dbeaver-original.svg" alt="DBeaver" width="36" height="36"><span>DBeaver</span></div>
+              </div>
+            </div>
+
+            <!-- DevOps & Ferramentas -->
+            <div class="panel stack-category">
+              <div class="stack-cat-header">
+                <span class="stack-cat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg>
+                </span>
+                <div>
+                  <h3 class="stack-cat-title">DevOps & Ferramentas</h3>
+                  <span class="stack-cat-count">3 tecnologias</span>
+                </div>
+              </div>
+              <div class="stack-cat-items">
+                <div class="tech-item" title="Docker"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" width="36" height="36"><span>Docker</span></div>
+                <div class="tech-item" title="Git"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" width="36" height="36"><span>Git</span></div>
+                <div class="tech-item" title="Linux"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" width="36" height="36"><span>Linux</span></div>
+              </div>
+            </div>
+
+            <!-- Cloud -->
+            <div class="panel stack-category">
+              <div class="stack-cat-header">
+                <span class="stack-cat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 1 0 0-9h-1.8A7 7 0 1 0 4 14.9"/></svg>
+                </span>
+                <div>
+                  <h3 class="stack-cat-title">Cloud</h3>
+                  <span class="stack-cat-count">2 tecnologias</span>
+                </div>
+              </div>
+              <div class="stack-cat-items">
+                <div class="tech-item" title="AWS"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" width="36" height="36"><span>AWS</span></div>
+                <div class="tech-item" title="Google Cloud"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" width="36" height="36"><span>Google Cloud</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ VIEW: PROJETOS ============ -->
+        <section class="view" id="view-projetos" aria-label="Projetos">
+          <div class="view-head">
+            <h2 class="view-title">Projetos</h2>
+            <p class="view-sub">Uma seleção de trabalhos e experimentos.</p>
+          </div>
+
+          <div class="projetos-grid">
+            <article class="panel project-card">
+              <div class="project-top">
+                <span class="project-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg>
+                </span>
+                <h3>Portfólio Web</h3>
+              </div>
+              <p>Meu portfólio pessoal com layout estilo sistema/dashboard — sidebar, navegação SPA, dark/light mode e design responsivo.</p>
+              <p class="tech-tags"><strong>Tecnologias:</strong> HTML5, CSS3, JavaScript</p>
+              <a href="https://github.com/yohanngusso/yohanngusso-portfolio" target="_blank" rel="noopener noreferrer">Ver no GitHub →</a>
+            </article>
+
+            <article class="panel project-card">
+              <div class="project-top">
+                <span class="project-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg>
+                </span>
+                <h3>API Baking</h3>
+              </div>
+              <p>API REST com foco em cadastro e consulta de usuários e seus recursos financeiros.</p>
+              <p class="tech-tags"><strong>Tecnologias:</strong> Java 17, Spring Boot, WEB, DATA JPA</p>
+              <a href="https://github.com/yohanngusso/API-BAKING" target="_blank" rel="noopener noreferrer">Ver no GitHub →</a>
+            </article>
+          </div>
+        </section>
+
+        <!-- ============ VIEW: CONTATO ============ -->
+        <section class="view" id="view-contato" aria-label="Contato">
+          <div class="view-head">
+            <h2 class="view-title">Contato</h2>
+            <p class="view-sub">Tem um projeto em mente ou quer trocar uma ideia? Entre em contato.</p>
+          </div>
+
+          <div class="contact-wrap">
+            <div class="panel contact-info">
+              <h3>Vamos conversar</h3>
+              <p>Respondo em até 24h. Prefere e-mail direto?</p>
+              <a href="mailto:yohann.gusso@hotmail.com" class="email-link">yohann.gusso@hotmail.com</a>
+              <ul class="contact-channels">
+                <li><a href="https://github.com/yohanngusso" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/yohanngusso/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="mailto:yohann.gusso@hotmail.com">E-mail</a></li>
+              </ul>
+            </div>
+
+            <form class="panel contact-form" action="mailto:yohann.gusso@hotmail.com" method="post" enctype="text/plain">
+              <div>
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+              </div>
+              <div>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+              </div>
+              <div>
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" rows="5" placeholder="Sua mensagem..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            </form>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Statusbar inferior -->
+      <footer class="statusbar">
+        <span class="sb-left"><i class="dot inline"></i> Disponível para novos projetos</span>
+        <span class="sb-right">UTF-8 • pt-BR • v1.0</span>
+      </footer>
     </div>
+  </div>
 
-    <p>&copy; <time datetime="2026">2026</time> Yohann Matheus Gusso Guedes. Todos os direitos reservados.</p>
-  </footer>
+  <!-- Toast de feedback -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z" />
+    </svg>
+    <span>Abrindo seu cliente de e-mail...</span>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 
 </html>]]>
