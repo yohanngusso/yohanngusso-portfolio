@@ -1,0 +1,25 @@
+# Material do curso (não deve ir para o repositório público)
+*.pdf
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependências (caso adicione no futuro)
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Arquivos temporários
+*.tmp
+*.bak
