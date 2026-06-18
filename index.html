@@ -1,4 +1,4 @@
-<![CDATA[<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR" data-theme="dark">
 
 <head>
@@ -7,13 +7,15 @@
   <meta name="description"
     content="Portfólio de Yohann Gusso — Desenvolvedor FullStack especializado em Node.js, Java (Spring Boot) e React.">
   <meta name="author" content="Yohann Gusso">
-  <meta name="keywords" content="Yohann Gusso, Desenvolvedor FullStack, Spring Boot, React, portfólio">
+  <meta name="theme-color" content="#18181b">
 
-  <!-- Open Graph -->
+  <!-- Open Graph + Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Yohann Gusso — Desenvolvedor FullStack">
   <meta property="og:description" content="Portfólio profissional de Yohann Gusso — Desenvolvedor FullStack.">
-  <meta property="og:image" content="assets/images/Foto_linkedin.png">
+  <meta property="og:image" content="assets/images/Foto_linkedin.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/images/Foto_linkedin.webp">
 
   <title>Yohann Gusso — Sistema</title>
 
@@ -27,15 +29,23 @@
     })();
   </script>
 
-  <!-- Google Fonts: Manrope + JetBrains Mono -->
+  <!-- Preload LCP image (avatar) -->
+  <link rel="preload" as="image" href="assets/images/Foto_linkedin.webp" type="image/webp">
+
+  <!-- Google Fonts: Manrope + JetBrains Mono (carregamento assíncrono p/ não bloquear render) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  </noscript>
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Stylesheet (carregamento assíncrono p/ não bloquear render) -->
+  <link rel="preload" href="css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
 </head>
 
 <body>
@@ -45,7 +55,10 @@
     <aside class="sidebar" id="sidebar">
       <!-- Perfil -->
       <div class="sidebar-profile">
-        <img src="assets/images/Foto_linkedin.png" alt="Foto de Yohann Gusso" class="sidebar-avatar">
+        <picture>
+          <source srcset="assets/images/Foto_linkedin.webp" type="image/webp">
+          <img src="assets/images/Foto_linkedin.png" alt="Foto de Yohann Gusso" class="sidebar-avatar" width="360" height="360">
+        </picture>
         <div class="sidebar-id">
           <strong>Yohann Gusso</strong>
           <span class="sidebar-role">FullStack Dev</span>
@@ -154,7 +167,10 @@
         <!-- ============ VIEW: DASHBOARD ============ -->
         <section class="view active" id="view-dashboard" aria-label="Dashboard">
           <div class="panel dash-hero">
-            <img src="assets/images/Foto_linkedin.png" alt="Foto de Yohann Gusso" class="dash-avatar">
+            <picture>
+              <source srcset="assets/images/Foto_linkedin.webp" type="image/webp">
+              <img src="assets/images/Foto_linkedin.png" alt="Foto de Yohann Gusso" class="dash-avatar" width="360" height="360">
+            </picture>
             <div class="dash-hero-info">
               <span class="dash-eyebrow">// Desenvolvedor FullStack</span>
               <h1>Yohann Gusso</h1>
@@ -399,7 +415,7 @@ yohann gusso
     <span>Abrindo seu cliente de e-mail...</span>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js" defer></script>
 </body>
 
-</html>]]>
+</html>
