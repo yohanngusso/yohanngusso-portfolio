@@ -370,8 +370,10 @@ yohann gusso
           <div class="contact-wrap">
             <div class="panel contact-info">
               <h3>Vamos conversar</h3>
-              <p>Respondo em até 24h. Prefere e-mail direto?</p>
-              <a href="mailto:yohann.gusso@hotmail.com" class="email-link">yohann.gusso@hotmail.com</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <a href="mailto:yohann.gusso@hotmail.com" class="email-link">yohann.gusso@hotmail.com</a>
+                <button id="copy-email" class="btn-ghost" style="padding: 4px 8px; font-size: 11px; min-height: auto;">Copiar</button>
+              </div>
               <ul class="contact-channels">
                 <li><a href="https://github.com/yohanngusso" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                 <li><a href="https://www.linkedin.com/in/yohanngusso/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
@@ -380,6 +382,9 @@ yohann gusso
             </div>
 
             <form class="panel contact-form" action="mailto:yohann.gusso@hotmail.com" method="post" enctype="text/plain">
+              <div style="margin-bottom: 12px; padding: 10px; background: var(--color-accent-soft); border-radius: var(--radius-sm); font-size: var(--fs-sm); color: var(--color-text-muted);">
+                Ao clicar em <strong>Enviar Mensagem</strong>seu cliente de e-mail (Outlook ou outros) será aberto com os dados preenchidos.
+              </div>
               <div>
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
@@ -387,6 +392,10 @@ yohann gusso
               <div>
                 <label for="email">E-mail</label>
                 <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+              </div>
+              <div>
+                <label for="assunto">Assunto</label>
+                <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" required>
               </div>
               <div>
                 <label for="mensagem">Mensagem</label>

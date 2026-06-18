@@ -134,14 +134,50 @@
   const toast = document.getElementById("toast");
 
   if (form && toast) {
-    form.addEventListener("submit", () => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const assunto = document.getElementById("assunto").value;
+      const mensagem = document.getElementById("mensagem").value;
+
+      const emailTo = "yohann.gusso@hotmail.com";
+      const subject = encodeURIComponent(`[Portfolio] ${assunto}`);
+      const body = encodeURIComponent(
+        `Nome: ${nome}\nE-mail: ${email}\n\nAssunto: ${assunto}\n\nMensagem:\n${mensagem}`
+      );
+
+      window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
+
       toast.classList.add("show");
       setTimeout(() => toast.classList.remove("show"), 4000);
     });
   }
 
   /* ------------------------------------------------------------
-     7. Atalhos de teclado (opcional)
+     7. Copiar email para área de transferência
+     ------------------------------------------------------------ */
+  const copyEmailBtn = document.getElementById("copy-email");
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener("click", () => {
+      const email = "yohann.gusso@hotmail.com";
+      navigator.clipboard.writeText(email).then(() => {
+        const originalText = copyEmailBtn.textContent;
+        copyEmailBtn.textContent = "Copiado!";
+        copyEmailBtn.disabled = true;
+        setTimeout(() => {
+          copyEmailBtn.textContent = originalText;
+          copyEmailBtn.disabled = false;
+        }, 2000);
+      }).catch(() => {
+        copyEmailBtn.textContent = "Erro";
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------
+     8. Atalhos de teclado (opcional)
      ------------------------------------------------------------ */
   document.addEventListener("keydown", (e) => {
     // Ignora se estiver digitando em campo
