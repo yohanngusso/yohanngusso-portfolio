@@ -2,7 +2,7 @@
 *.pdf
 *.txt
 *.json
-*.clinerules
+
 
 # Sistema operacional
 .DS_Store
